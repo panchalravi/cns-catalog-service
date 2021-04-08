@@ -1,0 +1,4 @@
+server:
+  port: 9001
+  tomcat:
+    connection-timeout: 5s #defines a limit for how much time Tomcat should wait between accepting a TCP connection from a client and actually receiving the HTTP request.
