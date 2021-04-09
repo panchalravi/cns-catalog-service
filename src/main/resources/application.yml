@@ -1,4 +1,12 @@
+spring:
+  profiles:
+    active: test-data
+  application:
+    name: catalog-service
 server:
   port: 9001
   tomcat:
     connection-timeout: 5s #defines a limit for how much time Tomcat should wait between accepting a TCP connection from a client and actually receiving the HTTP request.
+  address:
+polar:
+  greeting: Welcome to the local book catalog!
