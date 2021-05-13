@@ -21,14 +21,14 @@ class BookValidationTests {
 
     @Test
     fun whenAllFieldsCorrectThenValidationSucceeds(): Unit {
-        val book = Book("1234567890", "Title", "Author", Year.of(2000), 9.90)
+        val book = Book("1234567890", "Title", "Author", Year.of(2000), 9.90, "Polar")
         val violations = validator.validate(book)
         BDDAssertions.then(violations).isEmpty()
     }
 
     @Test
     fun whenIsbnDefinedButIncorrectThenValidationFails() {
-        val book = Book("a234567890", "Title", "Author", Year.of(2000), 9.90)
+        val book = Book("a234567890", "Title", "Author", Year.of(2000), 9.90, "Polar")
         val violations = validator.validate(book)
         BDDAssertions.then(violations).hasSize(1)
         BDDAssertions.then(violations.iterator().next().message).isEqualTo("The ISBN format must follow the standards ISBN-10 or ISBN-13.")

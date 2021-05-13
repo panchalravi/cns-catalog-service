@@ -5,13 +5,14 @@ import com.example.catalogservice.domain.BookRepository
 import org.springframework.stereotype.Repository
 import java.util.concurrent.ConcurrentHashMap
 
-@Repository
-class BookRepositoryImpl : BookRepository {
+//@Repository
+class BookRepositoryImpl /*: BookRepository */{
 
     companion object {
         var books = ConcurrentHashMap<String, Book>()
     }
 
+    /*
     override fun findAll(): Collection<Book> = books.values
 
     override fun findByIsbn(isbn: String): Book? = books[isbn]
@@ -26,4 +27,5 @@ class BookRepositoryImpl : BookRepository {
     override fun deleteByIsbn(isbn: String): Unit {
         books.remove(isbn)
     }
+    */
 }

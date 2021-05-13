@@ -1,9 +1,12 @@
 package com.example.catalogservice.domain
 
+import com.example.catalogservice.persistence.PersistableEntity
 import java.time.Year
+import javax.persistence.Entity
 import javax.validation.constraints.*
 
-data class Book(
+@Entity
+data class Book (
     @field:NotBlank(message = "The book ISBN must be defined.")
     @field:Pattern(regexp = "^(97([89]))?\\d{9}(\\d|X)$", message = "The ISBN format must follow the standards ISBN-10 or ISBN-13.")
     val isbn: String,
@@ -19,5 +22,7 @@ data class Book(
 
     @field:NotNull(message = "The book price must be defined.")
     @field:Positive(message = "The book price must be greater than zero.")
-    var price: Double
-)
+    var price: Double,
+
+    var publisher: String
+): PersistableEntity()
