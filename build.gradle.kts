@@ -37,6 +37,11 @@ dependencies {
 //    testImplementation("com.ninja-squad:springmockk:3.0.1")
 }
 
+tasks.bootBuildImage {
+    imageName = "panchalravi/${project.name}:${project.version}"
+    environment["BP_VM_VERSION"] = "11.*"
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -47,3 +52,4 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
